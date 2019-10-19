@@ -43,8 +43,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.subtotal = new System.Windows.Forms.TextBox();
+            this.discount = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -56,6 +56,10 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.Items = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Price = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.qty = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.total = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,7 +68,7 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(-2, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(937, 136);
+            this.pictureBox1.Size = new System.Drawing.Size(937, 102);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -113,7 +117,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(130, 241);
+            this.textBox1.Location = new System.Drawing.Point(130, 238);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 5;
@@ -174,12 +178,19 @@
             // 
             // listView1
             // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Items,
+            this.Price,
+            this.qty,
+            this.total});
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(124, 270);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(669, 155);
             this.listView1.TabIndex = 12;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -190,19 +201,19 @@
             this.label5.TabIndex = 13;
             this.label5.Text = "Price";
             // 
-            // textBox4
+            // subtotal
             // 
-            this.textBox4.Location = new System.Drawing.Point(182, 445);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 14;
+            this.subtotal.Location = new System.Drawing.Point(182, 445);
+            this.subtotal.Name = "subtotal";
+            this.subtotal.Size = new System.Drawing.Size(100, 20);
+            this.subtotal.TabIndex = 14;
             // 
-            // textBox5
+            // discount
             // 
-            this.textBox5.Location = new System.Drawing.Point(432, 442);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 15;
+            this.discount.Location = new System.Drawing.Point(432, 442);
+            this.discount.Name = "discount";
+            this.discount.Size = new System.Drawing.Size(100, 20);
+            this.discount.TabIndex = 15;
             // 
             // textBox6
             // 
@@ -298,6 +309,26 @@
             this.button5.Text = "Add items";
             this.button5.UseVisualStyleBackColor = true;
             // 
+            // Items
+            // 
+            this.Items.Text = "Items";
+            this.Items.Width = 160;
+            // 
+            // Price
+            // 
+            this.Price.Text = "Price";
+            this.Price.Width = 160;
+            // 
+            // qty
+            // 
+            this.qty.Text = "qty";
+            this.qty.Width = 160;
+            // 
+            // total
+            // 
+            this.total.Text = "total";
+            this.total.Width = 160;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -314,8 +345,8 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.discount);
+            this.Controls.Add(this.subtotal);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.button1);
@@ -355,8 +386,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox subtotal;
+        private System.Windows.Forms.TextBox discount;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
@@ -368,6 +399,10 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.ColumnHeader Items;
+        private System.Windows.Forms.ColumnHeader Price;
+        private System.Windows.Forms.ColumnHeader qty;
+        private System.Windows.Forms.ColumnHeader total;
     }
 }
 

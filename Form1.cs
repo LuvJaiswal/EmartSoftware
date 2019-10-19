@@ -44,6 +44,16 @@ namespace emart
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string[] arr = new string[4];
+            arr[0] = cmbitems.SelectedItem.ToString();
+            arr[1] = textBox1.Text;
+            arr[2] = textBox2.Text;
+            arr[3] = totaltext.Text;
+
+            ListViewItem lv = new ListViewItem(arr);
+            listView1.Items.Add(lv);
+
+
 
         }
 
@@ -116,6 +126,8 @@ namespace emart
             {
                 textBox1.Text = "0";
             }
+            totaltext.Text = "";
+            textBox2.Text="";
 
 
         }
@@ -128,6 +140,11 @@ namespace emart
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             totaltext.Text = (Convert.ToInt32(textBox1.Text) * Convert.ToInt32(textBox2.Text)).ToString();
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
     }

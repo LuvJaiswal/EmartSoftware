@@ -52,8 +52,15 @@ namespace emart
 
             ListViewItem lv = new ListViewItem(arr);
             listView1.Items.Add(lv);
-
-            subtotal.Text = (Convert.ToInt32(subtotal.Text) + Convert.ToInt32(totaltext.Text)).ToString();
+             
+            try
+            {
+                subtotal.Text = (Convert.ToInt32(subtotal.Text) + Convert.ToInt32(totaltext.Text)).ToString();
+            }
+            catch (System.FormatException)
+            {
+                subtotal.Text = "";
+            }
 
         }
 
@@ -139,14 +146,17 @@ namespace emart
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            try
+            if (textBox2.Text.Length > 0)
             {
-                totaltext.Text = (Convert.ToInt32(textBox1.Text) * Convert.ToInt32(textBox2.Text)).ToString();
+                try
+                {
+                    totaltext.Text = (Convert.ToInt32(textBox1.Text) * Convert.ToInt32(textBox2.Text)).ToString();
 
-            }
-            catch (System.FormatException)
-            {
-                totaltext.Text = "";
+                }
+                catch (System.FormatException)
+                {
+                    totaltext.Text = "error";
+                }
             }
         }
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -156,6 +166,39 @@ namespace emart
 
         private void subtotal_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void discount_TextChanged(object sender, EventArgs e)
+        {
+            if (discount.Text.Length > 0)
+            {
+                try
+                {
+                    netamount.Text = (Convert.ToInt32(subtotal.Text) + Convert.ToInt32(discount.Text).ToString());
+                }
+                catch (System.FormatException)
+                {
+                    netamount.Text = "checkout netamount";
+                }
+            }
+            }
+
+        private void remove_Click(object sender, EventArgs e)
+        {
+            if(listView1.SelectedItems.Count > 0)
+            {
+                for(int i=0;i < listView1.Items.Count; i++)
+                {
+                    if (listView1.Items[i].Selected)
+                    {
+                        subtotal.Text = (Convert.ToInt32(subtotal.Text) - Convert.ToInt32(listView1.Items[i].SubItems[3].Text)).ToString();
+                        listView1.Items[i].Remove();
+                          
+
+                    }
+                }
+            }
 
         }
     }

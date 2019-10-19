@@ -45,14 +45,14 @@
             this.label5 = new System.Windows.Forms.Label();
             this.subtotal = new System.Windows.Forms.TextBox();
             this.discount = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.netamount = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.paidamount = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.remove = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -216,13 +216,14 @@
             this.discount.Name = "discount";
             this.discount.Size = new System.Drawing.Size(100, 20);
             this.discount.TabIndex = 15;
+            this.discount.TextChanged += new System.EventHandler(this.discount_TextChanged);
             // 
-            // textBox6
+            // netamount
             // 
-            this.textBox6.Location = new System.Drawing.Point(693, 442);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 16;
+            this.netamount.Location = new System.Drawing.Point(693, 442);
+            this.netamount.Name = "netamount";
+            this.netamount.Size = new System.Drawing.Size(100, 20);
+            this.netamount.TabIndex = 16;
             // 
             // label6
             // 
@@ -236,21 +237,21 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(638, 446);
+            this.label7.Location = new System.Drawing.Point(631, 445);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(47, 13);
+            this.label7.Size = new System.Drawing.Size(56, 13);
             this.label7.TabIndex = 18;
-            this.label7.Text = "Net Item";
+            this.label7.Text = "Net amont";
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(636, 475);
+            this.label8.Location = new System.Drawing.Point(621, 475);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(51, 13);
+            this.label8.Size = new System.Drawing.Size(66, 13);
             this.label8.TabIndex = 19;
-            this.label8.Text = "Paid Item";
+            this.label8.Text = "Paid amount";
             // 
             // label9
             // 
@@ -261,12 +262,12 @@
             this.label9.TabIndex = 20;
             this.label9.Text = "Balance";
             // 
-            // textBox7
+            // paidamount
             // 
-            this.textBox7.Location = new System.Drawing.Point(693, 472);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 21;
+            this.paidamount.Location = new System.Drawing.Point(693, 472);
+            this.paidamount.Name = "paidamount";
+            this.paidamount.Size = new System.Drawing.Size(100, 20);
+            this.paidamount.TabIndex = 21;
             // 
             // textBox8
             // 
@@ -275,14 +276,15 @@
             this.textBox8.Size = new System.Drawing.Size(100, 20);
             this.textBox8.TabIndex = 22;
             // 
-            // button2
+            // remove
             // 
-            this.button2.Location = new System.Drawing.Point(718, 225);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 23;
-            this.button2.Text = "Remove items";
-            this.button2.UseVisualStyleBackColor = true;
+            this.remove.Location = new System.Drawing.Point(718, 225);
+            this.remove.Name = "remove";
+            this.remove.Size = new System.Drawing.Size(75, 23);
+            this.remove.TabIndex = 23;
+            this.remove.Text = "Remove items";
+            this.remove.UseVisualStyleBackColor = true;
+            this.remove.Click += new System.EventHandler(this.remove_Click);
             // 
             // button3
             // 
@@ -339,14 +341,14 @@
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.remove);
             this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.paidamount);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.netamount);
             this.Controls.Add(this.discount);
             this.Controls.Add(this.subtotal);
             this.Controls.Add(this.label5);
@@ -390,14 +392,14 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox subtotal;
         private System.Windows.Forms.TextBox discount;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox netamount;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox paidamount;
         private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button remove;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;

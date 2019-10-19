@@ -53,7 +53,7 @@ namespace emart
             ListViewItem lv = new ListViewItem(arr);
             listView1.Items.Add(lv);
 
-
+            subtotal.Text = (Convert.ToInt32(subtotal.Text) + Convert.ToInt32(totaltext.Text)).ToString();
 
         }
 
@@ -106,7 +106,7 @@ namespace emart
             }
 
 
-            else if (cmbitems.SelectedItem.ToString() == "Karai Lehnga")
+            else if (cmbitems.SelectedItem.ToString() == "karai Lehnga")
             {
                 textBox1.Text = "2050";
             }
@@ -150,6 +150,11 @@ namespace emart
             }
         }
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void subtotal_TextChanged(object sender, EventArgs e)
         {
 
         }

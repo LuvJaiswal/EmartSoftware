@@ -207,6 +207,8 @@
             this.subtotal.Name = "subtotal";
             this.subtotal.Size = new System.Drawing.Size(100, 20);
             this.subtotal.TabIndex = 14;
+            this.subtotal.Text = "0";
+            this.subtotal.TextChanged += new System.EventHandler(this.subtotal_TextChanged);
             // 
             // discount
             // 

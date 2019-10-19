@@ -139,9 +139,16 @@ namespace emart
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            totaltext.Text = (Convert.ToInt32(textBox1.Text) * Convert.ToInt32(textBox2.Text)).ToString();
-        }
+            try
+            {
+                totaltext.Text = (Convert.ToInt32(textBox1.Text) * Convert.ToInt32(textBox2.Text)).ToString();
 
+            }
+            catch (System.FormatException)
+            {
+                totaltext.Text = "";
+            }
+        }
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
